@@ -47,7 +47,7 @@ fn parse_inline(line: &mut String) -> &mut String {
 }
 
 impl ParserExt for Codeblock {
-    fn new_parser(mut lines: Vec<String>) -> Vec<String> {
+    fn parse(mut lines: Vec<String>) -> Vec<String> {
         let mut result: Vec<String> = lines
             .iter_mut()
             // strip lines with whitespace

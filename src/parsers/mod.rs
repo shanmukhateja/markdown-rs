@@ -6,7 +6,7 @@ pub mod header;
 pub mod plaintext;
 
 pub trait ParserExt {
-    fn new_parser(lines: Vec<String>) -> Vec<String>;
+    fn parse(lines: Vec<String>) -> Vec<String>;
 }
 
 #[allow(dead_code)]
@@ -14,13 +14,13 @@ pub fn run_parser(mut lines: Vec<String>) -> Vec<String> {
     let result: Vec<&mut String> = lines.iter_mut().filter(|x| !x.is_empty()).collect();
     let mut result: Vec<String> = result.iter().map(|f| f.to_string()).collect();
 
-    result = Header::new_parser(result);
+    result = Header::parse(result);
 
-    result = InlineBold::new_parser(result);
+    result = InlineBold::parse(result);
 
-    result = Codeblock::new_parser(result);
+    result = Codeblock::parse(result);
 
-    result = PlainText::new_parser(result);
+    result = PlainText::parse(result);
 
     result
 }

@@ -23,7 +23,7 @@ impl Header {
 }
 
 impl ParserExt for Header {
-    fn new_parser(lines: Vec<String>) -> Vec<String> {
+    fn parse(lines: Vec<String>) -> Vec<String> {
         let mut result: Vec<String> = lines;
 
         for line in result.iter_mut() {
